@@ -6,6 +6,7 @@ import 'package:dicoding_news_app/provider/news_provider.dart';
 import 'package:dicoding_news_app/provider/scheduling_provider.dart';
 import 'package:dicoding_news_app/ui/article_detail_page.dart';
 import 'package:dicoding_news_app/ui/article_list_page.dart';
+import 'package:dicoding_news_app/ui/bookmarks_page.dart';
 import 'package:dicoding_news_app/ui/settings_page.dart';
 import 'package:dicoding_news_app/utils/background_service.dart';
 import 'package:dicoding_news_app/utils/notification_helper.dart';
@@ -50,6 +51,10 @@ class _HomePageState extends State<HomePage> {
       title: Text(_headlineText)
     ),
     BottomNavigationBarItem(
+        icon: Icon(Platform.isIOS ? CupertinoIcons.bookmark : Icons.collections_bookmark),
+      title: Text(BookmarksPage.bookmarksTitle),
+    ),
+    BottomNavigationBarItem(
       icon: Icon(Platform.isIOS ? CupertinoIcons.settings : Icons.settings),
       title: Text(SettingsPage.settingsTitle)
     )
@@ -57,7 +62,7 @@ class _HomePageState extends State<HomePage> {
   
   List<Widget> _listWidget = [
     ArticleListPage(),
-    // BookmarksPage(),
+    BookmarksPage(),
     SettingsPage(),
   ];
 
